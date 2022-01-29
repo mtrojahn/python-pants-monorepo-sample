@@ -44,9 +44,3 @@ jobs:
       - name: Test
         run: |
           ./pants test ::
-      - name: Upload pants log
-        uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: dist/coverage/python/coverage.json
-        if: success()
