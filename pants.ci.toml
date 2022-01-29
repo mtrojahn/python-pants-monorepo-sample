@@ -4,3 +4,6 @@ colors = true
 
 [pytest]
 args = ["-vv", "--no-header"]
+
+[test]
+use_coverage = true

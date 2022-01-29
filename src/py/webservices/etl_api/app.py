@@ -1,8 +1,7 @@
 import uvicorn as uvicorn
 from fastapi import FastAPI
-from pydantic import BaseModel
-
 from libs.converters.etl import convert_to_string
+from pydantic import BaseModel
 
 app = FastAPI()
 

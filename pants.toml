@@ -1,5 +1,6 @@
 [GLOBAL]
 pants_version = "2.9.0"
+dynamic_ui = false
 
 backend_packages = [
   "pants.backend.python",
@@ -27,7 +28,7 @@ interpreter_constraints = [">=3.9"]
 search_path = ["<PATH>", "<PYENV>"]
 
 [bandit]
-args = ["--skip B101"]
+args = ["--skip B101,B104"]
 
 [test]
 use_coverage = false
