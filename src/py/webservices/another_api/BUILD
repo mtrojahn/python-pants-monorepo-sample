@@ -8,4 +8,4 @@ pex_binary(
 
 python_sources()
 
-docker_image(name="etl_api_image", dependencies=["src/py/webservices/etl_api:app"])
+docker_image(name="another_api_image", dependencies=[":app"])

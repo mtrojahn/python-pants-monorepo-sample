@@ -1,4 +1,4 @@
-from libs.converters.etl import convert_to_string
+from libs.converters import convert_to_string
 
 
 def test_convert_to_string():
