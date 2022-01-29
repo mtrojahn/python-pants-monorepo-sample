@@ -1,0 +1,31 @@
+[GLOBAL]
+pants_version = "2.9.0"
+
+backend_packages = [
+  "pants.backend.python",
+  "pants.backend.python.lint.docformatter",
+  "pants.backend.python.lint.black",
+  "pants.backend.python.lint.flake8",
+  "pants.backend.python.lint.isort",
+  "pants.backend.python.lint.bandit",
+#  "pants.backend.python.typecheck.mypy",
+]
+
+[source]
+root_patterns = [
+  "/src/py",
+  "/tests/py"
+]
+
+[anonymous-telemetry]
+enabled = false
+
+[python]
+interpreter_constraints = [">=3.9"]
+#requirement_constraints = "constraints.txt"
+
+[python-bootstrap]
+search_path = ["<PATH>", "<PYENV>"]
+
+[bandit]
+args = ["--skip B101"]
