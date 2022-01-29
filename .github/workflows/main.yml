@@ -1,0 +1,52 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    env:
+      PANTS_CONFIG_FILES: pants.ci.toml
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+        
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            ~/.cache/pants/setup
+            ~/.cache/pants/lmdb_store
+            ~/.cache/pants/named_caches
+          key: ${{ runner.os }}-
+          
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Bootstrap Pants
+        run: |
+          ./pants --version
+      - name: Check BUILD files
+        run: ./pants tailor --check update-build-files --check
+      - name: Lint and typecheck
+        run: | 
+          ./pants lint ::
+      - name: Test
+        run: |
+          ./pants test ::
+      - name: Upload pants log
+        uses: actions/upload-artifact@v2
+        with:
+          name: coverage
+          path: dist/coverage/python/coverage.json
+        if: success()
