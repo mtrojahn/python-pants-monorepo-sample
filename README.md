@@ -7,5 +7,6 @@ The things I tried to achieve here are the following:
 - Have linting working
 - Have tests working
 - Have docker image creation
+- Have a working CI
 
 Also, as a bonus, design the whole thing in a way one can easily integrate with PyCharm in order to use debugging, import checks, and such.
