@@ -1,6 +1,5 @@
 # this is a fix so requests is found during tests
 import requests  # noqa
-
 from fastapi.testclient import TestClient
 from webservices.converter_api.app import app
 
