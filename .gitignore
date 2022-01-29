@@ -1,0 +1,8 @@
+# Pants workspace files
+/.pants.d/
+/dist/
+/.pids
+/.pants.workdir.file_lock*
+.pytest_cache
+**/.pytest_cache
+.idea
