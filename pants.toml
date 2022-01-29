@@ -29,5 +29,9 @@ search_path = ["<PATH>", "<PYENV>"]
 [bandit]
 args = ["--skip B101"]
 
-[download-pex-bin]
-version = "v2.1.61"
+[test]
+use_coverage = false
+
+[coverage-py]
+filter = ["src/py"]
+report = ["json"]

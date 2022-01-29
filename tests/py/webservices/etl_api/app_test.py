@@ -8,4 +8,4 @@ client = TestClient(app)
 def test_get_string():
     response = client.get("/?number=1")
     assert response.status_code == 200
-    assert response.json() == {"result": "1"}
+    assert response.json() == {"message": "1"}
