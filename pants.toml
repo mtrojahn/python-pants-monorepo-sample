@@ -23,6 +23,7 @@ enabled = false
 
 [python]
 interpreter_constraints = [">=3.9"]
+requirement_constraints = "constraints.txt"
 
 [python-bootstrap]
 search_path = ["<PATH>", "<PYENV>"]

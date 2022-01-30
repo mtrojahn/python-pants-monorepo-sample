@@ -36,11 +36,7 @@ jobs:
       - name: Bootstrap Pants
         run: |
           ./pants --version
-      - name: Lint BUILD files
-        run: ./pants tailor --check update-build-files --check
-      - name: Lint
-        run: | 
-          ./pants lint ::
+      - name: Linters
+        run: make lint
       - name: Test
-        run: |
-          ./pants test ::
+        run: make test
