@@ -36,7 +36,12 @@ jobs:
       - name: Bootstrap Pants
         run: |
           ./pants --version
+      - name: Install additional packages
+        run: |
+          pip install -r constraints.txt
       - name: Linters
-        run: make lint
+        run: |
+          make lint
       - name: Test
-        run: make test
+        run: |
+          make test
